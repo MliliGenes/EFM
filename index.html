@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>EFM</title>
+  </head>
+  <body>
+    <h1>Hi There!</h1>
+    <div class="container">
+      <label for="">Devices</label>
+      <select data-device>
+        <option value="IPhone 14">IPhone 14</option>
+        <option value="HP ThinkPad">HP ThinkPad</option>
+        <option value="PlayStation 5">PlayStation 5</option>
+      </select>
+      <label for="">Quantity</label>
+      <input type="number" data-quantity value="1" min="1" />
+      <button data-add>Add to Cart</button>
+    </div>
+    <table data-table>
+      <tr>
+        <th>Reference</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </table>
+    <div class="container n2">
+      <label for="">PrixHT</label>
+      <input type="number" data-pht value="0" min="0" readonly />
+      <label for="">PrixTTC</label>
+      <input type="number" data-pttc value="0" min="0" readonly />
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
