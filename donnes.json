@@ -1,0 +1,12 @@
+{
+  "consoles": [
+    {
+      "ref": "IPhone 14",
+      "prix": 8000,
+      "image": "images/img1.png"
+    },
+    { "ref": "HP ThinkPad", "prix": 12000, "image": "images/img2.png" },
+    { "ref": "PlayStation 5", "prix": 9500, "image": "images/img3.png" },
+    { "ref": "Tv", "prix": 14000, "image": "images/img4.png" }
+  ]
+}

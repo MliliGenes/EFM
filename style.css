@@ -19,7 +19,7 @@ h1 {
   color: white;
 }
 .container {
-  max-width: 450px;
+  max-width: 600px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -55,7 +55,7 @@ button {
 }
 table {
   color: white;
-  max-width: 800px;
+  max-width: 600px;
   width: 100%;
   border-collapse: collapse;
 }
@@ -85,7 +85,7 @@ img {
   width: 60px;
 }
 .container.n2 {
-  max-width: 800px;
+  max-width: 600px;
   grid-template-columns: 1.2fr 1.5fr;
   grid-auto-rows: 35px;
 }

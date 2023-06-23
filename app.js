@@ -1,45 +1,37 @@
-const donnes = {
-  consoles: [
-    {
-      ref: "IPhone 14",
-      prix: 8000,
-      image: "images/img1.png",
-    },
-    { ref: "HP ThinkPad", prix: 12000, image: "images/img2.png" },
-    { ref: "PlayStation 5", prix: 9500, image: "images/img3.png" },
-  ],
-};
-
-window.addEventListener("load", () => {
-  fillConsoles(donnes);
-});
-
 let addBtn = document.querySelector("[data-add]");
 let device = document.querySelector("[data-device]");
 let pht = document.querySelector("[data-pht]");
 let pttc = document.querySelector("[data-pttc]");
 let quanlity = document.querySelector("[data-quantity]");
 let tableprd = document.querySelector("[data-table]");
+fetch("donnes.json")
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    const donnes = data;
 
-addBtn.addEventListener("click", () => {
-  let newItem = validateInputs();
-  if (newItem.valid == false) {
-    alert("wtf");
-    return;
-  }
-  let ref = newItem.device;
-  let img = donnes.consoles.filter((dev) => {
-    if (dev.ref == ref) {
-      return 1;
-    }
+    fillConsoles(donnes);
+
+    addBtn.addEventListener("click", () => {
+      let newItem = validateInputs();
+      if (newItem.valid == false) {
+        alert("wtf");
+        return;
+      }
+      let ref = newItem.device;
+      let img = donnes.consoles.filter((dev) => {
+        if (dev.ref == ref) {
+          return 1;
+        }
+      });
+      let qte = newItem.quanlity;
+      let url = img[0].image;
+      addDeviceTocart(ref, qte, url);
+      pht.value = prixHT() + "dh";
+      pttc.value = prixTTC() + "dh";
+    });
   });
-  let qte = newItem.quanlity;
-  let url = img[0].image;
-  addDeviceTocart(ref, qte, url);
-  pht.value = prixHT() + "dh";
-  pttc.value = prixTTC() + "dh";
-});
-
 function validateInputs() {
   let deviceValue = device.value;
   let quanlityVlaue = quanlity.value;
