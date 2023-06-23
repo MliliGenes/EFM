@@ -23,7 +23,8 @@ let tableprd = document.querySelector("[data-table]");
 
 addBtn.addEventListener("click", () => {
   let newItem = validateInputs();
-  if (!newItem.valid) {
+  if (newItem.valid == false) {
+    alert("wtf");
     return;
   }
   let ref = newItem.device;
@@ -35,17 +36,17 @@ addBtn.addEventListener("click", () => {
   let qte = newItem.quanlity;
   let url = img[0].image;
   addDeviceTocart(ref, qte, url);
-  pht.value = prixHT();
-  pttc.value = prixTTC();
+  pht.value = prixHT() + "dh";
+  pttc.value = prixTTC() + "dh";
 });
 
 function validateInputs() {
   let deviceValue = device.value;
   let quanlityVlaue = quanlity.value;
   if (!deviceValue) {
-    return false;
-  } else if (quanlityVlaue > 20 && quanlityVlaue < 1) {
-    return false;
+    return { valid: false, device: deviceValue, quanlity: quanlityVlaue };
+  } else if (quanlityVlaue > 20 || quanlityVlaue < 1) {
+    return { valid: false, device: deviceValue, quanlity: quanlityVlaue };
   } else {
     return { valid: true, device: deviceValue, quanlity: quanlityVlaue };
   }
@@ -100,8 +101,8 @@ function addDeviceTocart(ref, qte, url) {
       let target = e.target;
       if (target.classList.contains("delete")) {
         tableprd.removeChild(row);
-        pht.value = prixHT();
-        pttc.value = prixTTC();
+        pht.value = prixHT() + "dh";
+        pttc.value = prixTTC() + "dh";
       }
     });
   }
